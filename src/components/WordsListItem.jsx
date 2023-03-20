@@ -1,4 +1,6 @@
 import { FormControlLabel, Checkbox, Button } from '@mui/material';
+import DeleteIcon from '@mui/icons-material/Delete';
+import AutoFixHighIcon from '@mui/icons-material/AutoFixHigh';
 
 export const WordsListItem = () => {
   return (
@@ -14,8 +16,8 @@ export const WordsListItem = () => {
       <span>UA</span>
       <span>ENG</span>
       <div>
-        <Button>Edit</Button>
-        <Button>Delete</Button>
+        <Button startIcon={<AutoFixHighIcon />}>Edit</Button>
+        <Button startIcon={<DeleteIcon />}>Delete</Button>
       </div>
     </li>
   );
