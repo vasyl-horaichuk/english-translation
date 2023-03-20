@@ -4,14 +4,14 @@ const initialState = {
   items: [],
 };
 
-export const counterSlice = createSlice({
-  name: 'counter',
+export const wordsSlice = createSlice({
+  name: 'words',
   initialState,
   reducers: {
     addWord(state, action) {},
   },
 });
 
-export const {} = counterSlice.actions;
+export const {} = wordsSlice.actions;
 
-export default counterSlice.reducer;
+export const wordsReducer = wordsSlice.reducer;
