@@ -1,9 +1,9 @@
-import { CheckBox, FormControlLabel } from '@mui/icons-material';
+import { FormControlLabel, Checkbox } from '@mui/material';
 
 export const WordsListItem = () => {
   return (
     <li>
-      <FormControlLabel control={<CheckBox defaultChecked />} label="Label" />
+      <FormControlLabel control={<Checkbox defaultChecked />} label="Label" />
     </li>
   );
 };
