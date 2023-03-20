@@ -2,14 +2,17 @@ import { WordsList } from 'components/WordsList';
 import { Button } from '@mui/material';
 import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
 import { Backdrop } from '@mui/material';
-import CircularProgress from '@mui/material/CircularProgress';
 import { useState } from 'react';
 import { AddWordsForm } from 'components/AddWordsForm';
 
 const Home = () => {
   const [open, setOpen] = useState(false);
 
-  const handleToggle = () => {
+  const handleToggle = e => {
+    if (e.target.classList.contains('MuiBackdrop-root')) {
+      setOpen(open => !open);
+      return;
+    }
     setOpen(open => !open);
   };
 
@@ -31,8 +34,8 @@ const Home = () => {
         open={open}
         onClick={handleToggle}
       >
+        {/* <CircularProgress color="inherit" /> */}
         <AddWordsForm />
-        <CircularProgress color="inherit" />
       </Backdrop>
     </>
   );
