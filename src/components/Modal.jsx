@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
-import { Overflow, ModalWindow } from './Modal.styled';
 import { createPortal } from 'react-dom';
+import { Overflow, ModalWindow } from './Modal.styled';
+import { AddWordsForm } from './AddWordsForm';
 const modalRef = document.querySelector('#modal-root');
 
 export const Modal = ({ children, onClose }) => {
@@ -26,7 +27,9 @@ export const Modal = ({ children, onClose }) => {
 
   return createPortal(
     <Overflow onClick={handleBackdropClick}>
-      <ModalWindow></ModalWindow>
+      <ModalWindow>
+        <AddWordsForm />
+      </ModalWindow>
     </Overflow>,
     modalRef
   );
