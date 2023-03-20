@@ -3,7 +3,12 @@ import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
 
 export const AddWordsForm = () => {
   return (
-    <form>
+    <form
+      style={{
+        padding: '24px',
+        backgroundColor: 'white',
+      }}
+    >
       <TextField id="outlined-basic" label="Outlined" variant="outlined" />
       <TextField id="outlined-basic" label="Outlined" variant="outlined" />
 

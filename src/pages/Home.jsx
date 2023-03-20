@@ -4,6 +4,7 @@ import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
 import { Backdrop } from '@mui/material';
 import CircularProgress from '@mui/material/CircularProgress';
 import { useState } from 'react';
+import { AddWordsForm } from 'components/AddWordsForm';
 
 const Home = () => {
   const [open, setOpen] = useState(false);
@@ -30,6 +31,7 @@ const Home = () => {
         open={open}
         onClick={handleToggle}
       >
+        <AddWordsForm />
         <CircularProgress color="inherit" />
       </Backdrop>
     </>
