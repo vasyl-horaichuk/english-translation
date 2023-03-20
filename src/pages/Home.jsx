@@ -1,19 +1,13 @@
 import { WordsList } from 'components/WordsList';
 import { Button } from '@mui/material';
 import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
-import { Backdrop } from '@mui/material';
 import { useState } from 'react';
-import { AddWordsForm } from 'components/AddWordsForm';
+import { Modal } from 'components/Modal';
 
 const Home = () => {
-  const [open, setOpen] = useState(false);
-
-  const handleToggle = e => {
-    if (e.target.classList.contains('MuiBackdrop-root')) {
-      setOpen(open => !open);
-      return;
-    }
-    setOpen(open => !open);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const handleToggelModal = () => {
+    setIsModalOpen(isModalOpen => !isModalOpen);
   };
 
   return (
@@ -23,20 +17,13 @@ const Home = () => {
         <Button
           startIcon={<AddCircleOutlineIcon />}
           variant="contained"
-          onClick={handleToggle}
+          onClick={handleToggelModal}
         >
           Add new words
         </Button>
         <WordsList />
       </div>
-      <Backdrop
-        sx={{ color: '#fff', zIndex: theme => theme.zIndex.drawer + 1 }}
-        open={open}
-        onClick={handleToggle}
-      >
-        {/* <CircularProgress color="inherit" /> */}
-        <AddWordsForm />
-      </Backdrop>
+      {isModalOpen && <Modal onClose={handleToggelModal} />}
     </>
   );
 };

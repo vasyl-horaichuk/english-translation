@@ -1,13 +1,9 @@
 import { useEffect } from 'react';
-import { Modal } from './Modal.styled';
+import { Overflow, ModalWindow } from './Modal.styled';
+import { createPortal } from 'react-dom';
+const modalRef = document.querySelector('#modal-root');
 
-export const Modal = ({ children }) => {
-  const [isModalOpen, setIsModalOpen] = useState(false);
-
-  const handleToggelModal = () => {
-    setIsModalOpen(isModalOpen => !isModalOpen);
-  };
-
+export const Modal = ({ children, onClose }) => {
   useEffect(() => {
     const onCloseByEsc = e => {
       if (e.code === 'Escape') {
@@ -30,9 +26,7 @@ export const Modal = ({ children }) => {
 
   return createPortal(
     <Overflow onClick={handleBackdropClick}>
-      <ModalWindow>
-        <img src={largeImg} alt={user} />
-      </ModalWindow>
+      <ModalWindow></ModalWindow>
     </Overflow>,
     modalRef
   );
