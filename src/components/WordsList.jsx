@@ -7,7 +7,7 @@ export const WordsList = () => {
   return (
     <ul>
       {words.map((word, ind) => (
-        <WordsListItem word={word} key={word.key} number={ind} />
+        <WordsListItem word={word} key={word.id} number={ind + 1} />
       ))}
     </ul>
   );
