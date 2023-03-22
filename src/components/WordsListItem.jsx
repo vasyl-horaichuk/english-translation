@@ -2,7 +2,7 @@ import { FormControlLabel, Checkbox, Button } from '@mui/material';
 import DeleteIcon from '@mui/icons-material/Delete';
 import AutoFixHighIcon from '@mui/icons-material/AutoFixHigh';
 import { useDispatch } from 'react-redux';
-import { deleteWord } from 'redux/wordSlice';
+import { deleteWord, editWord } from 'redux/wordSlice';
 
 export const WordsListItem = ({
   word: { ukrWord, engWord, checked, id },
@@ -25,7 +25,12 @@ export const WordsListItem = ({
       <span>{ukrWord}</span>
       <span>{engWord}</span>
       <div>
-        <Button startIcon={<AutoFixHighIcon />}>Edit</Button>
+        <Button
+          onClick={() => dispatch(editWord(id))}
+          startIcon={<AutoFixHighIcon />}
+        >
+          Edit
+        </Button>
         <Button
           onClick={() => dispatch(deleteWord(id))}
           startIcon={<DeleteIcon />}
