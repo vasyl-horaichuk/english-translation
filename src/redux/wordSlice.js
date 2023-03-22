@@ -9,11 +9,11 @@ export const wordsSlice = createSlice({
   initialState,
   reducers: {
     addWord(state, action) {
-      state.push(action.payload);
+      state.items.push(action.payload);
     },
   },
 });
 
-export const {} = wordsSlice.actions;
+export const { addWord } = wordsSlice.actions;
 
 export const wordsReducer = wordsSlice.reducer;
