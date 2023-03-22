@@ -8,7 +8,9 @@ export const wordsSlice = createSlice({
   name: 'words',
   initialState,
   reducers: {
-    addWord(state, action) {},
+    addWord(state, action) {
+      state.push(action.payload);
+    },
   },
 });
 
