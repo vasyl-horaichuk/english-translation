@@ -2,7 +2,10 @@ import { FormControlLabel, Checkbox, Button } from '@mui/material';
 import DeleteIcon from '@mui/icons-material/Delete';
 import AutoFixHighIcon from '@mui/icons-material/AutoFixHigh';
 
-export const WordsListItem = () => {
+export const WordsListItem = ({
+  word: { ukrWord, engWord, checked },
+  number,
+}) => {
   return (
     <li
       style={{
@@ -11,10 +14,13 @@ export const WordsListItem = () => {
         alignItems: 'center',
       }}
     >
-      <FormControlLabel control={<Checkbox defaultChecked />} label="Label" />
-      <span>1</span>
-      <span>UA</span>
-      <span>ENG</span>
+      <FormControlLabel
+        control={<Checkbox Checked={checked} />}
+        label="Label"
+      />
+      <span>{number}</span>
+      <span>{ukrWord}</span>
+      <span>{engWord}</span>
       <div>
         <Button startIcon={<AutoFixHighIcon />}>Edit</Button>
         <Button startIcon={<DeleteIcon />}>Delete</Button>
