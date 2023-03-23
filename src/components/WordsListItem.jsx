@@ -43,7 +43,7 @@ export const WordsListItem = ({
           type="text"
           value={ukrWord}
           onChange={e => {
-            setUkrVariant(e.targetvalue);
+            setUkrVariant(e.target.value);
           }}
         />
       ) : (
@@ -54,18 +54,15 @@ export const WordsListItem = ({
           type="text"
           value={engWord}
           onChange={e => {
-            setEngVariant(e.targetvalue);
+            setEngVariant(e.target.value);
           }}
         />
       ) : (
         <span>{engWord}</span>
       )}
       <div>
-        <Button
-          onClick={() => dispatch(editWord(id))}
-          startIcon={<AutoFixHighIcon />}
-        >
-          Edit
+        <Button onClick={handleEdit} startIcon={<AutoFixHighIcon />}>
+          {isEdit ? 'Svae' : 'Edit'}
         </Button>
         <Button
           onClick={() => dispatch(deleteWord(id))}
