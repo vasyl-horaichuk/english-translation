@@ -12,6 +12,7 @@ import {
   REGISTER,
 } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
+import { filterReducer } from './filterSlice';
 
 const persistConfig = {
   key: 'root',
@@ -19,7 +20,7 @@ const persistConfig = {
   whitelist: ['words'],
 };
 
-const reducer = combineReducers({ words: wordsReducer });
+const reducer = combineReducers({ words: wordsReducer, filter: filterReducer });
 const persistedReducer = persistReducer(persistConfig, reducer);
 
 export const store = configureStore({
