@@ -18,8 +18,16 @@ export const wordsSlice = createSlice({
       const ind = state.items.findIndex(word => word.id === action.payload.id);
       state.items.splice(ind, 1, action.payload);
     },
+    toggleCompleted(state, action) {
+      // return state.items.map(word =>
+      //   word.id === action.payload ? { ...word, checked: !word.checked } : word
+      // );
+      const ind = state.items.findIndex(word => word.id === action.payload.id);
+      state.items.splice(ind, 1, action.payload);
+    },
   },
 });
 
-export const { addWord, deleteWord, editWord } = wordsSlice.actions;
+export const { addWord, deleteWord, editWord, toggleCompleted } =
+  wordsSlice.actions;
 export const wordsReducer = wordsSlice.reducer;

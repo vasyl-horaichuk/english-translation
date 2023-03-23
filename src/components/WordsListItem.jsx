@@ -2,7 +2,7 @@ import { FormControlLabel, Checkbox, Button } from '@mui/material';
 import DeleteIcon from '@mui/icons-material/Delete';
 import AutoFixHighIcon from '@mui/icons-material/AutoFixHigh';
 import { useDispatch } from 'react-redux';
-import { deleteWord, editWord } from 'redux/wordSlice';
+import { deleteWord, editWord, toggleCompleted } from 'redux/wordSlice';
 import { useState } from 'react';
 
 export const WordsListItem = ({
@@ -13,6 +13,23 @@ export const WordsListItem = ({
   const [isEdit, setIsEdit] = useState(false);
   const [ukrVariant, setUkrVariant] = useState(ukrWord);
   const [engVariant, setEngVariant] = useState(engWord);
+  const [isToggle, setToggle] = useState(false);
+
+  const handleToggle = e => {
+    if (isToggle) {
+      dispatch(
+        toggleCompleted({
+          id,
+          ukrWord: ukrVariant,
+          engWord: engVariant,
+          checked: !checked,
+        })
+      );
+      setToggle(false);
+      return;
+    }
+    setToggle(true);
+  };
 
   const handleEdit = e => {
     if (isEdit) {
@@ -36,6 +53,7 @@ export const WordsListItem = ({
       <FormControlLabel
         control={<Checkbox checked={checked} />}
         label="Label"
+        onChange={handleToggle}
       />
       <span>{number}</span>
       {isEdit ? (
@@ -62,7 +80,7 @@ export const WordsListItem = ({
       )}
       <div>
         <Button onClick={handleEdit} startIcon={<AutoFixHighIcon />}>
-          {isEdit ? 'Svae' : 'Edit'}
+          {isEdit ? 'Save' : 'Edit'}
         </Button>
         <Button
           onClick={() => dispatch(deleteWord(id))}
