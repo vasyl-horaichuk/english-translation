@@ -15,7 +15,7 @@ export const wordsSlice = createSlice({
       state.items = state.items.filter(word => word.id !== action.payload);
     },
     editWord(state, action) {
-      const index = state.items.find(contact => contact.id === action.payload);
+      const index = state.items.find(word => word.id === action.payload.id);
       state.items.splice(index, 1, action.payload);
     },
   },

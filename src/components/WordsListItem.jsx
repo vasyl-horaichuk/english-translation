@@ -9,6 +9,7 @@ export const WordsListItem = ({
   number,
 }) => {
   const dispatch = useDispatch();
+  const [isEdit, setIsEdit] = useState(false);
   return (
     <li
       style={{
@@ -22,8 +23,8 @@ export const WordsListItem = ({
         label="Label"
       />
       <span>{number}</span>
-      <span>{ukrWord}</span>
-      <span>{engWord}</span>
+      {isEdit ? <input type="text" /> : <span>{ukrWord}</span>}
+      {isEdit ? <input type="text" /> : <span>{engWord}</span>}
       <div>
         <Button
           onClick={() => dispatch(editWord(id))}
